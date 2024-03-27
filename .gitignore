@@ -130,8 +130,6 @@ venv.bak/
 
 
 notebooks/
-data/
-.data
 Dev/
 
 # Spyder project settings
