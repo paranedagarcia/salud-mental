@@ -6,3 +6,4 @@ openai==1.13.3
 pandasai==2.0.2
 pygwalker==0.4.6
 polars==0.20.13
+seaborn==0.12.2
