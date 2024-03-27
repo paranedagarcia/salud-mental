@@ -264,6 +264,7 @@ with tabPanel:
     licencias_por_anomes_corregido = df.groupby(
         'AñoMes').size().reset_index(name='Cantidad')
 
+    # ----------------------------------------------
     # Visualización corregida
     plt.figure(figsize=(18, 6))
     sns.lineplot(data=licencias_por_anomes_corregido,
@@ -323,6 +324,15 @@ with tabPanel:
     plt.legend(title='Código de Diagnóstico (CIE10)')
     plt.tight_layout()
     st.pyplot(plt)
+
+    # relica pyplot
+    fig_cie10 = px.line(licencias_por_mes_cie10, x='Mes', y='Cantidad', color='CIE10',
+                        title='Distribución Mensual de Licencias Médicas por Top 10 Códigos de Diagnóstico (CIE10)')
+    fig_cie10.update_layout(showlegend=True, xaxis_title=None, yaxis_title=None,
+                            title={'xanchor': 'center', 'x': 0.5},
+                            legend=dict(title=None,
+                                        yanchor='top', xanchor='center', x=0.5))
+    st.plotly_chart(fig_cie10, use_container_width=True)
 
     coll, colr = st.columns(2, gap="medium")
     coll.write("Diferencias en los patrones estacionales: No todas las condiciones de salud siguen el mismo patrón estacional, lo cual es esperado. Algunas condiciones pueden ser consistentemente altas a lo largo del año, mientras que otras muestran variabilidad mensual significativa.")
