@@ -37,6 +37,11 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+# ESTILOS
+with open('style/style.css') as f:
+    css = f.read()
+st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
+
 load_dotenv()
 API_KEY = st.secrets['OPENAI_API_KEY']  # os.environ['OPENAI_API_KEY']
 openai_api_key = API_KEY
