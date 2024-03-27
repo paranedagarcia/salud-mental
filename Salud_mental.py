@@ -4,6 +4,7 @@ import pandas as pd
 import streamlit.components.v1 as components
 from streamlit_extras.metric_cards import style_metric_cards
 
+import os
 import base64
 from io import BytesIO
 from PIL import Image
@@ -30,7 +31,7 @@ from funciones import load_data_csv
 
 # configuration
 st.set_page_config(
-    page_title="Maceda",
+    page_title="Salud mental",
     page_icon="🧊",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -79,6 +80,9 @@ df['HASTA'] = pd.to_datetime(df['HASTA'])
 #     df = df[df["FECHA"] == anual]
 # else:
 #     pass
+
+image = 'images/vgclab-negro.jpg'
+st.sidebar.image(image)
 
 st.sidebar.subheader("Licencias médicas ")
 # Filtro de rango de fechas
@@ -331,7 +335,7 @@ with tabIA:
         st.write("Las respuestas son generadas por un modelo de lenguaje de OpenAI, el cual permite realizar consultas sobre el dataset de MACEDA. Ingrese su consulta la que pudiera ser respondida por el modelo en forma de texto o una imagen gráfica.")
         st.write(
             "Por ejemplo, puede preguntar: ¿Cuántos eventos de tipo 'X' ocurrieron en la región 'Y' en el año '2018'?")
-        st.warning(
+        st.info(
             "*Nota*: Esta es una tecnología en experimentación por lo que las respuestas pueden no ser del todo exactas.")
     st.write("")
     user_path = os.getcwd()
