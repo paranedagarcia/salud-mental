@@ -218,7 +218,7 @@ with tabPanel:
     # Visualización
     plt.figure(figsize=(15, 6))
     sns.lineplot(data=licencias_por_mes, x='Año', y='Cantidad',
-                 estimator='sum', ci=None, marker='o')
+                 estimator='sum', marker='o')
     plt.title('Tendencia de Licencias Médicas Emitidas por Año', fontsize=18)
     plt.xlabel('Año', fontsize=14)
     plt.ylabel('Cantidad de licencias emitidas', fontsize=14)
